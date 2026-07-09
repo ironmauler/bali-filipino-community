@@ -1,0 +1,267 @@
+/* ============================================================
+   MOCK A — Editorial Warm
+   Adds chromatic life via category accent colors, oversized
+   italic display type, underline link animations, and
+   postcard-style photo treatment. No decorative SVGs.
+   ============================================================ */
+
+:root {
+  --acc-history:   #1b2d56;  /* Filipino flag navy */
+  --acc-culture:   #42221a;  /* BaliFILs burgundy */
+  --acc-music:     #cc785c;  /* book-cloth terracotta */
+  --acc-food:      #c89139;  /* saffron */
+  --acc-community: #3d7b6a;  /* jade */
+  --acc-legal:     #b08560;  /* aged kraft */
+  --acc-work:      #1b2d56;
+  --acc-money:     #c89139;
+  --acc-health:    #cc785c;
+  --acc-gov:       #1b2d56;
+}
+
+/* --- Section kickers: paper-tape labels in book-cloth ----------------- */
+.section-head .kicker,
+.featured-text .kicker {
+  background: var(--book-cloth) !important;
+  color: #fff !important;
+  border: 0 !important;
+  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.22) !important;
+  letter-spacing: 0.18em !important;
+  font-size: 0.74rem !important;
+  padding: 7px 14px 6px !important;
+  border-radius: 4px !important;
+  transform: rotate(-1deg);
+  transform-origin: center;
+}
+
+/* --- Oversized italic display headlines ------------------------------- */
+.section-head h2 {
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+}
+.section-head h2 em {
+  color: var(--book-cloth);
+  font-style: italic;
+}
+.section-head p {
+  font-size: 1.12rem;
+  color: var(--cloud-dark);
+}
+
+/* --- Hero: gentle paper grain + saffron eyebrow ---------------------- */
+.hero-flag {
+  background: rgba(255, 240, 210, 0.18) !important;
+  border-color: rgba(255, 240, 210, 0.32) !important;
+  color: #fae6c1 !important;
+  letter-spacing: 0.2em !important;
+}
+.hero h1 em {
+  color: #f4d28a;
+  font-family: var(--serif);
+}
+.hero .container::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 4px 4px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --- Features: clean numbered editorial blocks ----------------------- */
+.feature {
+  background: #fff;
+  border: 1px solid var(--ivory-dark);
+  border-radius: 4px;
+  padding: 32px 28px;
+  position: relative;
+  transition: box-shadow .25s ease, border-color .25s ease;
+}
+.feature::before {
+  background: var(--book-cloth) !important;
+  height: 3px !important;
+}
+.feature .ico {
+  background: var(--manilla) !important;
+  border-color: var(--kraft) !important;
+  color: var(--burgundy);
+}
+.feature h3 {
+  font-family: var(--serif);
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: var(--slate-dark);
+  margin-top: 18px;
+}
+
+/* --- Featured story: pull-quote treatment ---------------------------- */
+.featured-story {
+  border-radius: 6px !important;
+  border: 1px solid var(--ivory-dark) !important;
+  box-shadow: 0 24px 60px -28px rgba(25, 25, 25, 0.2);
+}
+.featured-text h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem) !important;
+  font-style: italic;
+  color: var(--slate-dark);
+}
+.featured-text .meta {
+  color: var(--cloud-dark);
+  letter-spacing: 0.04em;
+}
+.featured-text p em {
+  color: var(--book-cloth-deep);
+}
+
+/* --- Cards: postcard treatment with category-colored top --------------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--ivory-dark);
+  border-radius: 6px;
+  box-shadow: 0 10px 28px -16px rgba(25, 25, 25, 0.18);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.card:nth-child(odd)  { transform: rotate(-0.4deg); }
+.card:nth-child(even) { transform: rotate(0.3deg); }
+.card:hover {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: 0 22px 44px -16px rgba(25, 25, 25, 0.28);
+}
+
+.card-top {
+  height: 5px !important;
+  background: var(--book-cloth) !important;
+}
+.card.k-blue .card-top { background: var(--acc-history) !important; }
+.card.k-red  .card-top { background: var(--acc-music) !important; }
+.card.k-gold .card-top { background: var(--acc-legal) !important; }
+
+.card-icon {
+  border-radius: 6px !important;
+  background: var(--ivory-medium) !important;
+  border-color: var(--ivory-dark) !important;
+}
+.card.k-blue .card-icon { background: rgba(27, 45, 86, 0.08) !important; color: var(--acc-history); }
+.card.k-red  .card-icon { background: rgba(204, 120, 92, 0.14) !important; color: var(--acc-music); }
+.card.k-gold .card-icon { background: var(--manilla) !important; color: var(--acc-legal); }
+
+.card h3 {
+  font-family: var(--serif);
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.card h3 a { color: var(--slate-dark); }
+.card h3 a:hover { color: var(--book-cloth); }
+
+/* --- Featured card highlight: gold corner ribbon --------------------- */
+.card.is-highlighted::before {
+  background: linear-gradient(135deg, var(--book-cloth) 0%, var(--book-cloth-deep) 100%) !important;
+  color: #fff !important;
+  letter-spacing: 0.12em !important;
+}
+.card.is-highlighted {
+  box-shadow:
+    0 0 0 1px rgba(204, 120, 92, 0.45),
+    0 16px 40px -18px rgba(204, 120, 92, 0.5) !important;
+}
+
+/* --- Read-link animated underline ------------------------------------ */
+.card .read {
+  color: var(--book-cloth);
+  position: relative;
+  padding-bottom: 2px;
+}
+.card .read::before {
+  content: ""; position: absolute; left: 0; right: 28px; bottom: 0;
+  height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.card .read:hover::before { transform: scaleX(1); }
+
+/* --- Spotlight grid (Stories & Culture): photo-led with category badge -- */
+.spotlight {
+  border-radius: 6px;
+  box-shadow: 0 18px 44px -22px rgba(25, 25, 25, 0.28);
+}
+.spotlight .tag {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: var(--slate-dark) !important;
+  border-radius: 3px !important;
+  letter-spacing: 0.14em !important;
+  font-size: 0.66rem !important;
+}
+.spotlight.feature-music .tag { background: var(--book-cloth) !important; color: #fff !important; }
+.spotlight.feature-food  .tag { background: var(--acc-food) !important;  color: #fff !important; }
+.spotlight.feature-history .tag { background: var(--acc-history) !important; color: #fff !important; }
+.spotlight h3 {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* --- Nav: book-cloth CTA + animated link underlines ------------------ */
+.nav-links a:not(.nav-cta) {
+  position: relative;
+}
+.nav-links a:not(.nav-cta)::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: 4px;
+  height: 1.5px; background: var(--book-cloth);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform .25s ease;
+}
+.nav-links a:not(.nav-cta):hover::after,
+.nav-links a.active::after { transform: scaleX(0.6); }
+
+.nav-cta {
+  background: var(--book-cloth) !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.04em !important;
+}
+.nav-cta:hover { background: var(--book-cloth-deep) !important; }
+
+/* --- Buttons: refined editorial ------------------------------------- */
+.btn { border-radius: 4px; letter-spacing: 0.04em; }
+.btn-primary { background: var(--book-cloth); }
+.btn-primary:hover { background: var(--book-cloth-deep); }
+.btn-gold { background: var(--kraft); color: var(--slate-dark); }
+.btn-gold:hover { background: var(--kraft-deep); color: #fff; }
+.btn-outline {
+  border-color: var(--slate-dark);
+  color: var(--slate-dark);
+}
+.btn-outline:hover { background: var(--slate-dark); color: #fff; }
+
+/* --- Section backgrounds: gentle alternation ------------------------- */
+.section-cream { background: var(--manilla) !important; }
+.section-cream .feature { background: var(--ivory-light); }
+.section-cream .featured-story { background: var(--ivory-light); }
+.section-paper { background: var(--ivory-medium) !important; }
+
+/* --- Moments marquee: postcard photos -------------------------------- */
+.moments-track a {
+  border-radius: 4px;
+  border: 6px solid #fff;
+  background: #fff;
+  box-shadow: 0 8px 24px -12px rgba(25, 25, 25, 0.3);
+  transform: rotate(-0.8deg);
+}
+.moments-track a:nth-child(odd)  { transform: rotate(0.8deg); }
+.moments-track a:nth-child(even) { transform: rotate(-0.6deg); }
+.moments-track img { border-radius: 0; }
+
+/* --- CTA band: warm sunset wash -------------------------------------- */
+.cta-band {
+  background:
+    radial-gradient(700px 380px at 12% 110%, rgba(204, 120, 92, 0.40), transparent 65%),
+    radial-gradient(700px 360px at 100% -20%, rgba(212, 162, 127, 0.30), transparent 60%),
+    linear-gradient(160deg, var(--slate-dark) 0%, var(--slate-medium) 100%) !important;
+}
+.cta-band h2 em { color: var(--kraft); }
+
+/* --- Footer accents on social links --------------------------------- */
+.site-footer a:hover { color: var(--book-cloth) !important; }
+.footer-bottom { color: var(--cloud-medium); }
+
+/* Subtle warm tint on body so it doesn't feel sterile */
+body { background: #f8f4ec; }
