@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://balifilipinos.org/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://balifilipinos.org/articles.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://balifilipinos.org/guides.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://balifilipinos.org/events.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://balifilipinos.org/calendar.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://balifilipinos.org/share-your-story.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://balifilipinos.org/about.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- History &amp; Notable Kababayans -->
+  <url><loc>https://balifilipinos.org/articles/history.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/first-filipinos-in-bali.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/denpasar-moon.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/grace-tarjoto.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/antonio-blanco.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/75-years-friendship.html</loc><priority>0.7</priority></url>
+
+  <!-- News &amp; Connectivity -->
+  <url><loc>https://balifilipinos.org/articles/hidden-gems-bali-eats.html</loc><lastmod>2026-07-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://balifilipinos.org/articles/rabies-alert-2026.html</loc><lastmod>2026-07-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://balifilipinos.org/articles/davao-manado-flight.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Culture &amp; Community -->
+  <url><loc>https://balifilipinos.org/articles/cultural-brief.html</loc><priority>0.8</priority></url>
+  <url><loc>https://balifilipinos.org/articles/nyepi-survival.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/the-banjar.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/catholic-mass-bali.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/filipino-food.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/community-life.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/sports-scene-bali.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/filipino-owned-businesses.html</loc><priority>0.7</priority></url>
+
+  <!-- Practical / Newcomer -->
+  <url><loc>https://balifilipinos.org/articles/newcomer-30-days.html</loc><priority>0.8</priority></url>
+  <url><loc>https://balifilipinos.org/articles/renting-in-bali.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/schools-in-bali.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/retiree-guide-bali.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/cost-of-living.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/sending-money-home.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/work.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/healthcare.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/health-watch-list.html</loc><priority>0.7</priority></url>
+
+  <!-- Legal &amp; Government -->
+  <url><loc>https://balifilipinos.org/articles/visas-kitas.html</loc><priority>0.8</priority></url>
+  <url><loc>https://balifilipinos.org/articles/kitas-for-filipinos.html</loc><priority>0.8</priority></url>
+  <url><loc>https://balifilipinos.org/articles/dual-citizenship.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/c1-visa-extension.html</loc><priority>0.8</priority></url>
+  <url><loc>https://balifilipinos.org/articles/consular-services.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/ph-embassy-mwo.html</loc><priority>0.7</priority></url>
+
+  <!-- Travel -->
+  <url><loc>https://balifilipinos.org/articles/long-way-home.html</loc><priority>0.7</priority></url>
+  <url><loc>https://balifilipinos.org/articles/bali-to-borneo.html</loc><priority>0.7</priority></url>
+
+  <!-- Events -->
+  <url><loc>https://balifilipinos.org/articles/philippine-independence-day-2026.html</loc><priority>0.7</priority></url>
+</urlset>

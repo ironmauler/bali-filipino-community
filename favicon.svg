@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Cream parchment background -->
+  <rect width="100" height="100" rx="20" fill="#f3ead2"/>
+  <!-- Burgundy ring -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#42221a" stroke-width="3"/>
+  <!-- Gold inner accent -->
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#b8893b" stroke-width="1"/>
+  <!-- BF monogram -->
+  <text x="50" y="62" font-family="'Fraunces', 'Georgia', serif" font-size="38" font-weight="800"
+        text-anchor="middle" fill="#42221a" letter-spacing="-1">BF</text>
+  <!-- Tiny gold star above -->
+  <polygon points="50,22 51.5,26 56,26 52,28.5 53.5,33 50,30 46.5,33 48,28.5 44,26 48.5,26" fill="#b8893b"/>
+</svg>

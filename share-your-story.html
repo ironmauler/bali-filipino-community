@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Story — The BaliFILs Memory Portal | Filipinos in Bali</title>
+<meta name="description" content="The BaliFILs Memory Portal — share your Bali memories, achievements, photos, and officer history. Sign in with Google, tell your story, get celebrated.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Portal-specific touches */
+.portal-hero {
+  background:
+    radial-gradient(700px 360px at 12% 110%, rgba(242,180,23,0.22), transparent 65%),
+    radial-gradient(800px 400px at 92% -10%, rgba(210,48,72,0.20), transparent 60%),
+    linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color:#fff; padding: 96px 0 80px; position: relative; overflow: hidden;
+}
+.portal-hero h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem); color:#fff;
+  line-height: 1.05; letter-spacing: -0.02em; max-width: 16ch;
+}
+.portal-hero h1 em { color: var(--gold); font-style: italic; }
+.portal-hero p.lead { font-size: 1.18rem; color:#dbe2f5; max-width: 58ch; margin-top: 18px; }
+.portal-cta { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+.badge-confetti {
+  display:inline-flex; align-items:center; gap:8px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+  color: var(--gold); padding: 8px 16px; border-radius: 999px;
+  font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.step-grid {
+  display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 14px;
+}
+.step {
+  background:#fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 26px; box-shadow: var(--shadow-sm); position: relative;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.step:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.step .num {
+  display: inline-grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--gold); color: var(--navy-deep);
+  font-family: var(--display); font-weight: 800; font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+.step h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.step p { color: var(--muted); font-size: 0.95rem; }
+
+.cat-grid {
+  display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.cat {
+  background: #fff; border-radius: var(--radius); border: 1px solid var(--line);
+  padding: 22px 22px 20px; transition: transform .15s ease, background .2s ease, color .2s ease;
+}
+.cat:hover { transform: translateY(-2px); }
+.cat .ico {
+  display: inline-grid; place-items: center;
+  width: 46px; height: 46px; border-radius: 12px;
+  background: var(--blue-soft); font-size: 1.5rem;
+  border: 1px solid var(--line); margin-bottom: 12px;
+}
+.cat h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.cat p { color: var(--muted); font-size: 0.92rem; }
+
+.example-grid {
+  display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.ex {
+  background: var(--cream); border-radius: var(--radius);
+  padding: 18px 22px; border-left: 4px solid var(--red);
+  font-size: 0.95rem; color: var(--ink-soft);
+}
+.ex strong { color: var(--navy); display: block; margin-bottom: 4px; }
+
+.confetti-box {
+  background: linear-gradient(135deg, rgba(242,180,23,0.18), rgba(210,48,72,0.12));
+  border: 1px solid var(--gold);
+  border-radius: var(--radius); padding: 26px 28px;
+  display: flex; gap: 18px; align-items: flex-start;
+  margin-top: 22px;
+}
+.confetti-box .emoji { font-size: 2.2rem; flex: none; line-height: 1; }
+
+.admin-section {
+  background: var(--navy);
+  color: #d8e0f4; border-radius: var(--radius-lg);
+  padding: 38px 32px; margin-top: 28px;
+}
+.admin-section h2 { color: #fff; font-family: var(--serif); }
+.admin-section h3 { color: var(--gold); font-family: var(--display); font-size: 1.05rem; margin-top: 22px; margin-bottom: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+.admin-section p { color: #c4cce0; }
+.admin-section ol, .admin-section ul { color: #d8e0f4; padding-left: 22px; }
+.admin-section code {
+  background: rgba(255,255,255,0.10); color: var(--gold);
+  padding: 1px 7px; border-radius: 5px; font-size: 0.88em;
+}
+.admin-section pre {
+  background: #050d29; color: #e6ecfb;
+  padding: 18px 20px; border-radius: 12px;
+  overflow-x: auto; font-size: 0.82rem; line-height: 1.55;
+  margin: 14px 0 6px; border: 1px solid rgba(255,255,255,0.10);
+}
+.admin-section a { color: var(--gold); }
+.admin-section a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<header class="site-header"><nav class="nav"><a class="brand" href="index.html"><img class="brand-mark" src="BaliFILs-mark.png" alt="BaliFILs" width="94" height="36">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="name">Filipinos in Bali</span>
+        <span class="tag">Established 1952 · Kababayan</span>
+      </span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="articles.html">Guides</a></li><li><a href="events.html">Events</a></li><li><a href="share-your-story.html" class="active">Share Story</a></li><li><a href="about.html">About</a></li><li><a href="https://www.facebook.com/groups/filipinosinbali" class="nav-cta" target="_blank" rel="noopener">Join the Group</a></li></ul></nav></header>
+
+<section class="portal-hero">
+  <div class="container">
+    <span class="badge-confetti">🎉 BaliFILs Memory Portal</span>
+    <h1>Your story <em>belongs here.</em></h1>
+    <p class="lead">If you've been part of BaliFILs — as an officer, a member, a family of one, or just someone who came to one gathering and never forgot it — we want to write the next chapter <em>with</em> you. Share your memories, achievements, photos, and the names of the people who made it all happen. We'll turn them into articles on this site.</p>
+    <div class="portal-cta">
+      <a class="btn btn-gold" href="#open-portal">Open the submission portal</a>
+      <a class="btn btn-ghost" href="#what-to-share">What can I share?</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">How it works</span>
+      <h2>Three steps. That's it.</h2>
+      <p>Sign in with Google so we know it's you, share your story, and we'll celebrate every single contribution.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Sign in with Google</h3>
+        <p>One tap. We use Google sign-in so we know who you are and so you can upload photos directly from your device.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Tell your story</h3>
+        <p>Pick a memory, type a few sentences, attach photos, give us the year (a guess is fine). It takes about 3 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Get celebrated 🎉</h3>
+        <p>You'll get a thank-you on the spot, and a personal note from BaliFILs admin team. The strongest stories become articles on this site — credited to you, with your permission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="what-to-share">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">What to share</span>
+      <h2>Anything that matters to <em>you</em>.</h2>
+      <p>If you can't decide where it fits — just pick the closest category. The admin team sorts it later.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat"><div class="ico">📜</div><h3>BaliFILs history</h3><p>Founding stories, the earliest gatherings, group-chat origins, first members.</p></div>
+      <div class="cat"><div class="ico">👔</div><h3>Officer roles</h3><p>If you served as President, VP, Secretary, Treasurer, Auditor, PRO or Adviser — when, and what you did.</p></div>
+      <div class="cat"><div class="ico">🏆</div><h3>Personal achievements</h3><p>Promotions, awards, opening a business, raising your family, finishing school in Bali.</p></div>
+      <div class="cat"><div class="ico">🎉</div><h3>Past events</h3><p>Independence Days, Christmas parties, basketball tournaments, sports days, fundraisers, weddings.</p></div>
+      <div class="cat"><div class="ico">📷</div><h3>Photos &amp; videos</h3><p>Old albums, screenshots from group chats, photos of past officer rosters, group shots — every image helps.</p></div>
+      <div class="cat"><div class="ico">🙏</div><h3>Tributes &amp; memorials</h3><p>Members or officers we've lost, kababayans whose contributions deserve to be remembered.</p></div>
+      <div class="cat"><div class="ico">🤝</div><h3>Friend nominations</h3><p>Nominate another kababayan — a notable musician, chef, hospitality leader, mentor. We'll reach out.</p></div>
+      <div class="cat"><div class="ico">💭</div><h3>Anything else</h3><p>A funny story, a meaningful moment, a lesson learned. If it mattered to you, it matters to us.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Story ideas</span>
+      <h2>Stuck? Try one of these.</h2>
+    </div>
+    <div class="example-grid">
+      <div class="ex"><strong>"My first BaliFILs gathering"</strong>Tell us about the first BaliFILs event you ever attended — where, who was there, what you remember most.</div>
+      <div class="ex"><strong>"How I got my KITAS"</strong>The agent, the paperwork, the panic, the relief. Someone is going through it right now.</div>
+      <div class="ex"><strong>"The longest-serving Filipino I know in Bali"</strong>Their name, their story, when they arrived, what they did. We'll honour them properly.</div>
+      <div class="ex"><strong>"The officer team that came before"</strong>Names, roles, the year, what they accomplished. We want a complete officer history.</div>
+      <div class="ex"><strong>"The kababayan who picked me up from the airport"</strong>The small kindnesses that built this community.</div>
+      <div class="ex"><strong>"A photo and one sentence"</strong>Even just a single image with a caption is a contribution. Send it.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="open-portal">
+  <div class="container" style="max-width:820px;">
+    <div class="section-head">
+      <span class="kicker">Ready?</span>
+      <h2>Open BaliFILs submission portal</h2>
+      <p>Google sign-in keeps it secure and lets you upload photos directly. It takes a few minutes. Everyone who submits gets a personal thank-you.</p>
+    </div>
+
+    <div style="text-align:center;">
+      <a class="btn btn-primary" id="portalLink" href="#admin-setup" style="font-size:1.05rem; padding: 16px 34px;">📝 Open the portal &amp; share my story</a>
+      <p style="margin-top:16px; color:var(--muted); font-size:0.9rem;">The portal opens in a new tab. You'll need a Google account.</p>
+    </div>
+
+    <div class="confetti-box">
+      <span class="emoji">🎉</span>
+      <div>
+        <strong>Every submission is a gift.</strong>
+        <p style="margin-top:6px; color:var(--ink-soft); font-size:0.95rem;">When you submit, you'll see a celebratory thank-you screen, get a confirmation email, and within a week BaliFILs admin team will personally reply. The best stories become articles credited to you. Salamat!</p>
+      </div>
+    </div>
+
+    <div class="callout note" style="margin-top:24px;">
+      <h4>🔒 Your privacy, your call</h4>
+      <p>The form asks for permission to publish your name and photos. You can say yes, no, or "use first name only." If you'd rather stay anonymous, that's fine — your story still goes into BaliFILs archive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-paper" id="admin-setup">
+  <div class="container" style="max-width:920px;">
+    <div class="admin-section">
+      <h2 style="font-size:1.6rem; margin-bottom:6px;">🛠️ For BaliFILs admin team (this section is yours, Jeff)</h2>
+      <p>The portal landing page is ready. To make the actual submission form live, you need to create a Google Form once — about 5 minutes — and then paste its URL into this page. The simplest way is to run the Apps Script below, which sets up the form, response sheet, Drive folder, and confirmation email automatically.</p>
+
+      <h3>Step 1 — Create the form with one click</h3>
+      <ol>
+        <li>Open <a href="https://script.google.com/" target="_blank" rel="noopener">script.google.com</a> while signed into the <code>balifilipinos@gmail.com</code> account.</li>
+        <li>Click <strong>New project</strong>.</li>
+        <li>Delete the placeholder code and paste the <strong>BaliFILs Portal setup script</strong> (below).</li>
+        <li>Click the ▶️ <strong>Run</strong> button. Approve the permissions when Google asks.</li>
+        <li>In the script's <strong>Execution log</strong> at the bottom, you'll see two URLs printed:
+          <ul>
+            <li>The <strong>public form URL</strong> — that's the one to share with members.</li>
+            <li>The <strong>response spreadsheet URL</strong> — that's your admin view.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>Step 2 — Wire the form URL into this page</h3>
+      <ol>
+        <li>Open <code>share-your-story.html</code> in any editor.</li>
+        <li>Find the line that says <code>id="portalLink"</code> (search for that exact text).</li>
+        <li>Change the <code>href="#admin-setup"</code> to <code>href="YOUR_FORM_URL_HERE"</code> and add <code>target="_blank" rel="noopener"</code>.</li>
+        <li>Save. The "Open the portal" button now links to the live form.</li>
+      </ol>
+      <p>Or just send the form URL to me in chat and I'll wire it.</p>
+
+      <h3>Step 3 — Your admin workflow</h3>
+      <ul>
+        <li>Every submission lands in the response spreadsheet automatically — with name, email, date, story, and links to uploaded photos.</li>
+        <li>Each submitter gets an automatic <strong>thank-you email</strong> from the script.</li>
+        <li>Photos go into a Drive folder titled <em>"BaliFILs Memory Portal — Submissions"</em>.</li>
+        <li>To turn a submission into an article: copy its content into a new doc, drop the photos into <code>images/</code>, and write me a quick note in chat — I'll format and publish it.</li>
+        <li>Consider replying personally to every submission within a week. That single follow-up is what makes the portal feel <em>fun</em>, not bureaucratic.</li>
+      </ul>
+
+      <h3>The Apps Script — paste this into script.google.com</h3>
+      <pre><code>/**
+ * BaliFILs Memory Portal setup — runs once.
+ * Creates: a Google Form, a linked response spreadsheet,
+ * a Drive folder for uploaded photos, and an auto-reply email.
+ */
+function setupCommunityPortal() {
+  var FORM_TITLE = "BaliFILs Memory Portal — Share Your Story";
+  var FOLDER_NAME = "BaliFILs Memory Portal — Submissions";
+  var ADMIN_EMAIL = "balifilipinos@gmail.com";
+
+  // 1. Photo upload folder
+  var folder = DriveApp.createFolder(FOLDER_NAME);
+
+  // 2. Create the form
+  var form = FormApp.create(FORM_TITLE);
+  form.setDescription(
+    "Tell us your story — a memory, an achievement, a photo, an event from the past. " +
+    "We'll add the strongest stories to BaliFILs website, credited to you (with your permission). " +
+    "Salamat for sharing — every submission matters."
+  );
+  form.setCollectEmail(true);
+  form.setRequireLogin(true);            // forces Google sign-in
+  form.setAllowResponseEdits(true);
+  form.setConfirmationMessage(
+    "🎉 Salamat po! Your story is safely with BaliFILs admin team.\n\n" +
+    "You'll get a confirmation email shortly, and a personal note from us within a week. " +
+    "Mabuhay!"
+  );
+
+  // 3. Fields
+  form.addTextItem()
+      .setTitle("How would you like to be credited?")
+      .setHelpText("Your full name, a first name only, or 'anonymous' — your call.")
+      .setRequired(true);
+
+  var roleItem = form.addMultipleChoiceItem()
+      .setTitle("Your connection to BaliFILs")
+      .setChoiceValues([
+        "Current officer",
+        "Past officer",
+        "Current member",
+        "Family of a member",
+        "Friend of the community",
+        "Other"
+      ])
+      .setRequired(true);
+
+  var typeItem = form.addCheckboxItem()
+      .setTitle("What kind of story is this?")
+      .setChoiceValues([
+        "BaliFILs history / early days",
+        "Officer history (names, roles, years)",
+        "Personal achievement",
+        "Past event recap",
+        "Photos / videos",
+        "Tribute / memorial",
+        "Nomination of another kababayan",
+        "Something else"
+      ])
+      .setRequired(true);
+
+  form.addTextItem()
+      .setTitle("Year or approximate date")
+      .setHelpText("A guess is fine — 'around 2017' or '2019 Christmas party' both work.");
+
+  form.addTextItem()
+      .setTitle("Title of your story")
+      .setRequired(true);
+
+  form.addParagraphTextItem()
+      .setTitle("Tell us about it")
+      .setHelpText("As much or as little as you'd like — we'll edit lightly and check with you before publishing.")
+      .setRequired(true);
+
+  form.addTextItem()
+      .setTitle("Where in Bali did this happen?")
+      .setHelpText("Sanur, Nusa Dua, Kuta, Ubud, Denpasar, etc.");
+
+  form.addTextItem()
+      .setTitle("Names of others involved (optional)")
+      .setHelpText("Officers, members, friends — we'll reach out to them too.");
+
+  form.addParagraphTextItem()
+      .setTitle("Any links?")
+      .setHelpText("News articles, Facebook posts, YouTube videos, anything we can use as a source.");
+
+  // Photo upload — needs login (already set above)
+  form.addFileUploadItem()
+      .setTitle("Upload photos or scanned documents (up to 10)")
+      .setHelpText("Drag and drop, or pick from your phone. Photos help a story land.")
+      .setMaxFiles(10)
+      .setMaxFileSize(50)  // MB total
+      .setDestinationDriveFolder(folder.getId());
+
+  form.addMultipleChoiceItem()
+      .setTitle("May we publish this on BaliFILs website?")
+      .setChoiceValues([
+        "Yes — credit me by name",
+        "Yes — first name only",
+        "Yes — but keep me anonymous",
+        "No — for BaliFILs archive only"
+      ])
+      .setRequired(true);
+
+  form.addParagraphTextItem()
+      .setTitle("Anything else for the admin team?")
+      .setHelpText("Optional. A note, a thank you, a question.");
+
+  // 4. Link a response spreadsheet
+  var ss = SpreadsheetApp.create("BaliFILs Memory Portal — Responses");
+  form.setDestination(FormApp.DestinationType.SPREADSHEET, ss.getId());
+
+  // 5. Auto-reply trigger
+  ScriptApp.newTrigger("sendCommunityThankYou")
+    .forForm(form)
+    .onFormSubmit()
+    .create();
+
+  // 6. Log URLs
+  Logger.log("✅ Form (share this URL with members):  " + form.getPublishedUrl());
+  Logger.log("📊 Responses spreadsheet (admin view): " + ss.getUrl());
+  Logger.log("📁 Photo upload folder:                " + folder.getUrl());
+}
+
+/**
+ * Sends a warm thank-you on every submission.
+ */
+function sendCommunityThankYou(e) {
+  try {
+    var responses = e.response.getItemResponses();
+    var nameGuess = "kababayan";
+    var emailAddr = e.response.getRespondentEmail();
+    for (var i = 0; i &lt; responses.length; i++) {
+      var t = responses[i].getItem().getTitle();
+      if (t.indexOf("credited") &gt;= 0) { nameGuess = responses[i].getResponse() || nameGuess; }
+    }
+    if (!emailAddr) return;
+    var subject = "🎉 Salamat po, " + nameGuess + " — your BaliFILs story is with us";
+    var body =
+      "Hi " + nameGuess + ",\n\n" +
+      "Thank you for sharing your story with the Filipinos in Bali. " +
+      "We received it safely and will read it carefully.\n\n" +
+      "Within a week, one of our admins will personally reply — and if your story " +
+      "is a good fit for BaliFILs website, we'll work with you to publish it (credited " +
+      "exactly the way you asked).\n\n" +
+      "Every submission helps us write our community's history. We are grateful you took the time.\n\n" +
+      "Mabuhay,\n" +
+      "The Filipinos in Bali admin team\n" +
+      "balifilipinos@gmail.com";
+    MailApp.sendEmail(emailAddr, subject, body);
+  } catch(err) {
+    Logger.log("Thank-you email failed: " + err);
+  }
+}</code></pre>
+
+      <h3>Tweaks you might want</h3>
+      <ul>
+        <li>Change the Form's title, description, or thank-you message — edit it directly in the form after running the script.</li>
+        <li>Add a custom header image in the form (Form → Customise theme).</li>
+        <li>Share the response spreadsheet with co-admins so multiple people can triage.</li>
+        <li>To rerun the setup script (e.g., after edits), delete the previously-created form and spreadsheet first, otherwise you'll end up with duplicates.</li>
+      </ul>
+
+      <p style="margin-top:24px; color:#c4cce0;">Once the form is live, send me the URL in chat and I'll wire it into the "Open the portal" button so members can click straight through. Mabuhay! 🇵🇭🌴</p>
+    </div>
+  </div>
+</section>
+
+<button class="scroll-top" id="scrollTop" aria-label="Back to top" type="button">↑</button>
+<script>(function(){var b=document.getElementById("scrollTop");if(!b)return;function t(){b.classList.toggle("visible",window.scrollY>400);}window.addEventListener("scroll",t,{passive:true});b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});t();})();</script>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-about"><div class="footer-brand"><img class="brand-mark footer-mark" src="BaliFILs-mark-light.png" alt="BaliFILs" width="124" height="48"><span class="name">Filipinos in Bali</span></div><p>A community network for Filipinos living in Bali — and, in time, across all of Indonesia. Celebrate our heritage. Strengthen our community. Build our future together.</p></div><div><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="articles.html">Newcomer Guides</a></li><li><a href="events.html">Events</a></li><li><a href="share-your-story.html">Share Your Story</a></li><li><a href="about.html">About BaliFILs</a></li></ul></div><div><h4>Connect</h4><ul class="footer-links"><li><a href="https://www.facebook.com/groups/filipinosinbali" target="_blank" rel="noopener">Facebook Group</a></li>
+          <li><a href="https://www.facebook.com/filipinosinbali" target="_blank" rel="noopener">Facebook Page</a></li>
+          <li><a href="https://chat.whatsapp.com/LupFe0SWUrl3kWpf6O9gUT?mode=gi_t" target="_blank" rel="noopener">WhatsApp Channel</a></li><li><a href="mailto:balifilipinos@gmail.com">balifilipinos@gmail.com</a></li><li><a href="https://jakartape.dfa.gov.ph/" target="_blank" rel="noopener">PH Embassy Jakarta</a></li></ul></div></div><div class="footer-bottom"><span>© 2026 Filipinos in Bali. Made by kababayans, for kababayans.</span><span>Last updated: May 2026</span></div></div></footer>
+
+</body>
+</html>
